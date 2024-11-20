@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const gameRoutes = require("./routes/gameRoutes");
 const cors = require('cors'); 
