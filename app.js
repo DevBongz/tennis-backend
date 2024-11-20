@@ -4,15 +4,24 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-//Middleware
+// Middleware
 app.use(express.json());
 
-//Routes
+// Routes
 app.use("/api/game", gameRoutes);
 
-//Start the server
+// Route for the root path
+app.get("/", (req, res) => {
+  res.send("Welcome to the Tennis Backend API!");
+});
+
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+
+
+// app.use(cors({ origin: 'https://your-frontend.vercel.app' }));
